@@ -1,0 +1,235 @@
+@font-face {
+	font-family: libertinus_sans;
+	src: url(fonts/libertinus_sans.otf);
+}
+
+@font-face {
+	font-family: libertinus_sans_bold;
+	src: url(fonts/libertinus_sans_bold.otf);
+}
+
+@font-face {
+	font-family: libertinus_serif;
+	src: url(fonts/libertinus_serif.otf);
+}
+
+@font-face {
+	font-family: libertinus_serif_semibold;
+	src: url(fonts/libertinus_serif_semibold.otf);
+}
+
+@font-face {
+	font-family: libertinus_serif_bold;
+	src: url(fonts/libertinus_serif_bold.otf);
+}
+
+:root {
+	/* Default values for CSS variables */
+	--color: #404040;
+	--perspective: 3px;
+}
+
+body {
+	background-color: #000000;
+	margin: 0;
+	padding: 0;
+	
+	overflow: hidden;
+}
+
+.sans {
+	font-family: libertinus_sans, sans-serif;
+}
+
+.serif {
+	font-family: libertinus_serif, serif;
+}
+
+p {
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	
+	padding: 0;
+	line-height: 1.3;
+	font-size: 1.25em;
+}
+
+h1 {
+	font-family: libertinus_serif_bold, sans-serif;
+	font-size: 1.5em;
+	line-height: 1.1;
+}
+
+h2 {
+	font-family: libertinus_serif_bold, sans-serif;
+	font-size: 1.425em;
+	line-height: 1.05;
+}
+
+h3 {
+	font-family: libertinus_serif_bold, sans-serif;
+	font-size: 20px;
+	line-height: 1.35em;
+}
+
+h4 {
+	font-family: libertinus_serif_bold, sans-serif;
+	font-size: 1.3em;
+	line-height: 1.05;
+}
+
+#container {
+	width: 100vw;
+	height: 100vh;
+	
+	font-family: libertinus_sans, sans-serif;
+	color: #e8e8e8;
+	
+	overflow-x: hidden;
+	overflow-y: auto;
+	
+	perspective: var(--perspective);
+	perspective-origin: 50%;
+}
+
+#logo {
+	height: 100%;
+	padding-left: 0.75em;
+	padding-right: 0.75em;
+	overflow: hidden;
+}
+
+#menu {
+	position: sticky;
+	
+	top: 0;
+	height: 5em;
+	
+	margin-left:  5%;
+	margin-right: 5%;
+	
+	background-color: #292929;
+	border-left:   2px solid #ffffff;
+	border-right:  2px solid #ffffff;
+	border-bottom: 2px solid #ffffff;
+	
+	overflow: hidden;
+}
+
+#menu_padding {
+	height: 5em;
+}
+
+ul#menu_items {
+	list-style-type: none;
+	
+	margin: 0;
+	padding: 0;
+	
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	
+	overflow: hidden;
+}
+
+ul#menu_items li {
+	border-top: 2px solid #ffffff;
+	float: left;
+}
+
+ul#menu_items li a {
+	display: block;
+	padding: 0.75em;
+	
+	text-align: center;
+	text-decoration: none;
+	font-family: libertinus_sans_bold, sans-serif;
+	font-size: 1.15em;
+	color: #ffffff;
+	
+	transition: 0.3s;
+}
+
+ul#menu_items li a:hover {
+	background-color: #6e6e6e;
+}
+
+ul#menu_items li a.active {
+	background-color: #454545;
+}
+
+ul#menu_items li a.active:hover {
+	background-color: #6e6e6e;
+}
+
+@media all and (max-width: 720px) {
+	#page { width: 100%; }
+	#container { width: 100%; }
+	
+	#menu {
+		margin: 0;
+		width: 100%;
+		height: 3.5em;
+		
+		border-left:  0px;
+		border-right: 0px;
+	}
+	
+	#menu_padding { height: 3.5em; }
+	
+	ul#menu_items li {
+		border-top: 0px;
+	}
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+
+.content {
+	margin-left:  10%;
+	margin-right: 10%;
+	
+	padding-left:  2.5%;
+	padding-right: 2.5%;
+	padding-top: 0.75em;
+	padding-bottom: 0.75em;
+	
+	flex-grow: 1;
+	
+	background-color: #1e1e1e;
+}
+
+.image_banner {
+	position: relative;
+	height: 36em;
+	
+	margin-left:  10%;
+	margin-right: 10%;
+	
+	overflow: hidden;
+}
+.image_banner::after {
+	content: " ";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	
+	background-image: var(--src);
+	
+	transform: translateZ(-1.75px) scale(4);
+	transform-origin: 50%;
+	
+	background-size: 100%;
+	z-index: -1;
+}
+
+@media all and (max-width: 720px) {
+	.content { margin-left: 0; margin-right: 0; }
+	.image_banner { margin-left: 0; margin-right: 0; }
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+
+
